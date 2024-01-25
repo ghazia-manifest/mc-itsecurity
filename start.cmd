@@ -6,6 +6,7 @@ echo.
 call python -m pip install -r requirements.txt
 if "%errorlevel%" neq "0" (
     echo Failed to restore backend python packages
+	pause
     exit /B %errorlevel%
 )
 
@@ -16,6 +17,7 @@ cd frontend
 call npm install
 if "%errorlevel%" neq "0" (
     echo Failed to restore frontend npm packages
+	pause
     exit /B %errorlevel%
 )
 
@@ -25,6 +27,7 @@ echo.
 call npm run build
 if "%errorlevel%" neq "0" (
     echo Failed to build frontend
+	pause
     exit /B %errorlevel%
 )
 
@@ -36,5 +39,6 @@ start http://127.0.0.1:5000
 call python ./app.py
 if "%errorlevel%" neq "0" (
     echo Failed to start backend
+	pause
     exit /B %errorlevel%
 )
